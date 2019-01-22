@@ -54,7 +54,9 @@ qsprpred_env$set_target(targ.min,targ.max)
 tmp <- read.csv("LC_frags.csv")
 frags <- as.character(tmp[,"SMILES"]) #/pick SMILES to match for now
 
-### 9. inverse problem
+### 9. inverse problem 
+# Note: due to data sharing restriction of PoLyInfo, initial structures are selected from the Polymer Genome database
+load("initial_SMILES.RData")
 smis0 <- sample(smis.uni, para$n.sample)
 burnin = 100
 temp = c(seq(30, 1, length = burnin), rep(1, para$n.iter - burnin))
